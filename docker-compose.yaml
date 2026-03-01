@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:14
+    container_name: betera_postgres
+    environment:
+      POSTGRES_USER: betera
+      POSTGRES_PASSWORD: betera
+      POSTGRES_DB: betera_db
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init_db:/docker-entrypoint-initdb.d
+      - ./data:/data
